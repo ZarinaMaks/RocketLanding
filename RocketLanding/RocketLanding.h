@@ -1,66 +1,89 @@
-class Rocket {
+struct Rocket
+{
+private:
 
-	float x, y, velocityX, velocityY, fuel, sidePower, centralPower;
+	float x, y, fuel,
+		velocityX, velocityY,
+		sidePower, centralPower;
 
 public:
-	Rocket(float x_ = 0, float y_ = 0, float fuel_ = 100) :
-		x(x_), y(y_), velocityX(0), velocityY(0), fuel(fuel_), sidePower(0), centralPower(0) {}
 
-	float getX() {
+	Rocket(float x_ = 0, float y_ = 0, float fuel_ = 70) :
+		x(x_), y(y_), fuel(fuel_),
+		velocityX(0), velocityY(0),
+		sidePower(0), centralPower(0) {}
+
+	//------- GETTERS -------//
+	float getX()
+	{
 		return x;
 	}
-	void setX(float coordinate) {
+
+	float getY()
+	{
+		return y;
+	}
+
+	float getVelocityX()
+	{
+		return velocityX;
+	}
+
+	float getVelocityY()
+	{
+		return velocityY;
+	}
+
+	float getFuel()
+	{
+		return fuel;
+	}
+
+	float getSidePower()
+	{
+		return sidePower;
+	}
+
+	float getCentralPower()
+	{
+		return centralPower;
+	}
+	//------- ------- -------//
+
+	//------- SETTERS -------//
+	void setX(float coordinate)
+	{
 		x = coordinate;
 	}
 
-	float getY() {
-		return y;
-	}
-	void setY(float coordinate) {
+	void setY(float coordinate)
+	{
 		y = coordinate;
 	}
 
-	float getVelocityX() {
-		return velocityX;
-	}
-	void setVelocityX(float velocity) {
+	void setVelocityX(float velocity)
+	{
 		velocityX = velocity;
 	}
 
-	float getVelocityY() {
-		return velocityY;
-	}
-	void setVelocityY(float velocity) {
+	void setVelocityY(float velocity)
+	{
 		velocityY = velocity;
 	}
 
-	float getFuel() {
-		return fuel;
-	}
-	void setFuel(float fuel_) {
+	void setFuel(float fuel_)
+	{
 		fuel = fuel_;
 	}
 
-	float getSidePower() {
-		return sidePower;
-	}
-	void setSidePower(float power) {
+	void setSidePower(float power)
+	{
 		sidePower = power;
 	}
 
-	float getCentralPower() {
-		return centralPower;
-	}
-	void setCentralPower(float power) {
+	void setCentralPower(float power)
+	{
 		centralPower = power;
 	}
-
-	void move() {
-		setVelocityX(getVelocityX() + getSidePower() + WIND);
-		setVelocityY(getVelocityY() + getCentralPower() + GRAVITY);
-		setX(getX() + getVelocityX());
-		setY(getY() + getVelocityY());
-		setFuel(getFuel() - getCentralPower() - getSidePower());
-	}
-
+	//------- ------- -------//
 };
