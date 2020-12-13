@@ -121,19 +121,42 @@ int main()
 					if (event.type == Event::Closed)
 						window.close();
 
+					Texture FlameTexture;
+					FlameTexture.loadFromFile("C:\\Users\\zarmm\\source\\repos\\RocketLanding\\images\\Flame.png");
+					FlameTexture.setSmooth(true);
+					Sprite FlameSprite(FlameTexture);
+
 					if (event.type == Event::KeyPressed) 
 					{
 						if (event.key.code == Keyboard::A)
 							if (rocket.getFuel() > 0) 
-								rocket.setSidePower (-2 * GRAVITY_ACCELERATION);
+							{
+								rocket.setSidePower(-2 * GRAVITY_ACCELERATION);
+
+								FlameSprite.setPosition(rocket.getX() - 40, rocket.getY());
+								window.draw(FlameSprite);
+							}
 						if (event.key.code == Keyboard::D)
 							if (rocket.getFuel() > 0) 
-								rocket.setSidePower (2 * GRAVITY_ACCELERATION);
+							{
+								rocket.setSidePower(2 * GRAVITY_ACCELERATION);
+
+								FlameSprite.setPosition(rocket.getX() - 40, rocket.getY());
+								window.draw(FlameSprite);
+							}
 						if (event.key.code == Keyboard::W)
 							if (rocket.getFuel() > 0)
-								rocket.setCentralPower (-2 * GRAVITY_ACCELERATION);
+							{
+								rocket.setCentralPower(-2 * GRAVITY_ACCELERATION);
+
+								FlameSprite.setPosition(rocket.getX() - 40, rocket.getY());
+								window.draw(FlameSprite);
+							}
 						if (event.key.code == Keyboard::S)
+						{
 							rocket.setCentralPower(2 * GRAVITY_ACCELERATION);
+
+						}
 					}
 				}
 
